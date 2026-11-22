@@ -45,6 +45,31 @@ body { display:grid; place-items:center; }
 .corner.tl{top:10px;left:10px;border-width:2px 0 0 2px}.corner.tr{top:10px;right:10px;border-width:2px 2px 0 0}.corner.bl{bottom:10px;left:10px;border-width:0 0 2px 2px}.corner.br{bottom:10px;right:10px;border-width:0 2px 2px 0}
 @keyframes twinkle{to{opacity:.25}} @keyframes float{50%{transform:translateY(-20px) scale(1.05)}} @keyframes bob{50%{transform:translate(-50%,-8px)}} @keyframes pulse{50%{opacity:.55;box-shadow:0 0 18px #b34cff66}}
 @media (min-width:700px){.stage{border-radius:12px;box-shadow:0 0 80px #4c1b9d55}.countbox{top:48%}}
+
+/* Layout refinement: smaller typography and clear vertical zones */
+.title { top:23%; }
+.title .a { font-size:clamp(36px,11vw,54px); }
+.title .b { font-size:clamp(36px,11.5vw,58px); margin-top:6px; }
+.title .c { font-size:clamp(24px,7.5vw,36px); margin-top:6px; }
+.subtitle { top:41.5%; font-size:10px; letter-spacing:2px; }
+.countbox { top:46.5%; padding:14px 8px 16px; }
+.countlabel { font-size:9px; margin-bottom:6px; letter-spacing:2px; }
+.count { font-size:clamp(32px,9.5vw,46px); }
+.tip { top:60.5%; font-size:12px; line-height:1.45; }
+.press { top:68%; padding:8px 18px; font-size:13px; }
+.pixelworld { bottom:13%; height:10%; }
+.cat { bottom:8.8%; font-size:26px; }
+.social { bottom:4%; font-size:8px; }
+.social span { padding:7px 8px; }
+@media (max-height:700px) {
+  .title { top:21%; }
+  .subtitle { top:39.5%; }
+  .countbox { top:44.5%; }
+  .tip { top:58.5%; }
+  .press { top:66%; }
+  .pixelworld { bottom:12.5%; height:9%; }
+}
+
 </style>
 </head>
 <body>
