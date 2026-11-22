@@ -13,6 +13,11 @@ body { display:grid; place-items:center; }
  radial-gradient(ellipse at 70% 22%, #28216c 0%, transparent 34%),
  radial-gradient(ellipse at 20% 65%, #251052 0%, transparent 38%),
  linear-gradient(160deg,#080b28 0%,#09051b 55%,#02040c 100%); }
+.aurora { position:absolute; inset:-15% -30%; pointer-events:none; overflow:hidden; opacity:.8; filter:blur(28px); z-index:0; }
+.aurora::before, .aurora::after { content:""; position:absolute; width:150%; height:65%; left:-20%; border-radius:50%;
+ background:conic-gradient(from 210deg at 50% 50%, transparent 0 22%, #17f7dc33 28%, #5c32ff55 38%, #ff40d033 48%, transparent 58% 100%);
+ animation:auroraWave 18s ease-in-out infinite alternate; transform:rotate(-12deg); }
+.aurora::after { top:22%; left:18%; opacity:.65; background:conic-gradient(from 70deg at 50% 50%, transparent 0 24%, #21eaff35 33%, #8c3cff66 42%, #30ffc833 52%, transparent 63% 100%); animation-duration:24s; animation-direction:alternate-reverse; }
 .grid { position:absolute; inset:0; opacity:.22; background-image:linear-gradient(#342d88 1px,transparent 1px),linear-gradient(90deg,#342d88 1px,transparent 1px); background-size:36px 36px; transform:perspective(450px) rotateX(55deg) scale(1.5); transform-origin:bottom; mask-image:linear-gradient(to bottom,transparent 25%,black 100%); }
 .stars { position:absolute; inset:0; background-image:radial-gradient(#fff 1px,transparent 1.5px),radial-gradient(#00eaff 1px,transparent 1.5px); background-size:90px 120px,145px 180px; background-position:12px 30px,40px 80px; opacity:.6; animation:twinkle 3s infinite alternate; }
 .orb { position:absolute; width:65vw; max-width:320px; aspect-ratio:1; border-radius:50%; filter:blur(40px); opacity:.18; background:#733cff; top:22%; left:20%; animation:float 7s ease-in-out infinite; }
@@ -43,7 +48,7 @@ body { display:grid; place-items:center; }
 .social span { border:1px solid #5a37ac; padding:8px 10px; border-radius:4px; background:#0b0d25; }
 .corner { position:absolute; width:32px;height:32px;border-color:#00eaff;border-style:solid; }
 .corner.tl{top:10px;left:10px;border-width:2px 0 0 2px}.corner.tr{top:10px;right:10px;border-width:2px 2px 0 0}.corner.bl{bottom:10px;left:10px;border-width:0 0 2px 2px}.corner.br{bottom:10px;right:10px;border-width:0 2px 2px 0}
-@keyframes twinkle{to{opacity:.25}} @keyframes float{50%{transform:translateY(-20px) scale(1.05)}} @keyframes bob{50%{transform:translate(-50%,-8px)}} @keyframes pulse{50%{opacity:.55;box-shadow:0 0 18px #b34cff66}}
+@keyframes auroraWave{0%{transform:translate(-4%, -8%) rotate(-14deg) scale(1)}100%{transform:translate(7%, 9%) rotate(8deg) scale(1.18)}} @keyframes twinkle{to{opacity:.25}} @keyframes float{50%{transform:translateY(-20px) scale(1.05)}} @keyframes bob{50%{transform:translate(-50%,-8px)}} @keyframes pulse{50%{opacity:.55;box-shadow:0 0 18px #b34cff66}}
 @media (min-width:700px){.stage{border-radius:12px;box-shadow:0 0 80px #4c1b9d55}.countbox{top:48%}}
 
 /* Layout refinement: smaller typography and clear vertical zones */
@@ -74,7 +79,7 @@ body { display:grid; place-items:center; }
 </head>
 <body>
 <div class="stage">
-  <div class="grid"></div><div class="stars"></div><div class="orb"></div><div class="frame"></div>
+  <div class="aurora"></div><div class="grid"></div><div class="stars"></div><div class="orb"></div><div class="frame"></div>
   <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
   <div class="top"><div class="logo">PLAYER ZONE</div><div class="status">STREAM READY</div></div>
   <div class="arcade">◆ ARCADE MODE ◆</div>
